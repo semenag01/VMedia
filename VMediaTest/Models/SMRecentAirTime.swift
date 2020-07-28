@@ -8,6 +8,8 @@
 
 import Foundation
 
-class SMRecentAirTime {
-
+class SMRecentAirTime: Codable {
+    
+    let id: Int
+    let channelID: Int
 }

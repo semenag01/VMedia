@@ -8,13 +8,11 @@
 
 import Foundation
 
-class SMProgramItem {
-
+class SMProgramItem: Codable {
+    
+    let length: Int
+    let name: String
+    let startTime: Date
+    
+    let recentAirTime: SMRecentAirTime
 }
-startTime: "2020-07-09T01:30:00Z",
-recentAirTime: {
-id: 30717891,
-channelID: 302735
-},
-length: 150,
-name: "Jesse James"

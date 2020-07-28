@@ -33,10 +33,13 @@
 		3A8C63D824D0233900DDE8CB /* SMBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8C631624D0233900DDE8CB /* SMBaseViewController.swift */; };
 		3A8C63D924D0233900DDE8CB /* SMBaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8C631724D0233900DDE8CB /* SMBaseTableViewController.swift */; };
 		3A8C63DA24D0233900DDE8CB /* SMBaseModelCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8C631824D0233900DDE8CB /* SMBaseModelCollectionViewController.swift */; };
-		3ABBED4624D0268600AA01B1 /* SMMoviesGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABBED4524D0268600AA01B1 /* SMMoviesGateway.swift */; };
+		3ABBED4624D0268600AA01B1 /* SMChanelGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ABBED4524D0268600AA01B1 /* SMChanelGateway.swift */; };
 		3AEED30C24D04B3A003D7199 /* SMChannel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AEED30B24D04B3A003D7199 /* SMChannel.swift */; };
 		3AEED30E24D04B4B003D7199 /* SMRecentAirTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AEED30D24D04B4B003D7199 /* SMRecentAirTime.swift */; };
 		3AEED31024D04B5A003D7199 /* SMProgramItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AEED30F24D04B5A003D7199 /* SMProgramItem.swift */; };
+		3AEED31224D063E8003D7199 /* Array+Divide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AEED31124D063E8003D7199 /* Array+Divide.swift */; };
+		3AEED31424D06651003D7199 /* DateFormatter+formatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AEED31324D06651003D7199 /* DateFormatter+formatters.swift */; };
+		3AEED31624D06DDA003D7199 /* JSONDecoder+decoders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AEED31524D06DDA003D7199 /* JSONDecoder+decoders.swift */; };
 		FB14C466CB2D68F1EF903FB0 /* Pods_VMediaTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C6511FE7C64DCA9C78B2A40 /* Pods_VMediaTest.framework */; };
 /* End PBXBuildFile section */
 
@@ -70,10 +73,13 @@
 		3A8C631624D0233900DDE8CB /* SMBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMBaseViewController.swift; sourceTree = "<group>"; };
 		3A8C631724D0233900DDE8CB /* SMBaseTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMBaseTableViewController.swift; sourceTree = "<group>"; };
 		3A8C631824D0233900DDE8CB /* SMBaseModelCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMBaseModelCollectionViewController.swift; sourceTree = "<group>"; };
-		3ABBED4524D0268600AA01B1 /* SMMoviesGateway.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMMoviesGateway.swift; sourceTree = "<group>"; };
+		3ABBED4524D0268600AA01B1 /* SMChanelGateway.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMChanelGateway.swift; sourceTree = "<group>"; };
 		3AEED30B24D04B3A003D7199 /* SMChannel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMChannel.swift; sourceTree = "<group>"; };
 		3AEED30D24D04B4B003D7199 /* SMRecentAirTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMRecentAirTime.swift; sourceTree = "<group>"; };
 		3AEED30F24D04B5A003D7199 /* SMProgramItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMProgramItem.swift; sourceTree = "<group>"; };
+		3AEED31124D063E8003D7199 /* Array+Divide.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Divide.swift"; sourceTree = "<group>"; };
+		3AEED31324D06651003D7199 /* DateFormatter+formatters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+formatters.swift"; sourceTree = "<group>"; };
+		3AEED31524D06DDA003D7199 /* JSONDecoder+decoders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JSONDecoder+decoders.swift"; sourceTree = "<group>"; };
 		570B7EE681048298B30C338E /* Pods-VMediaTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VMediaTest.release.xcconfig"; path = "Target Support Files/Pods-VMediaTest/Pods-VMediaTest.release.xcconfig"; sourceTree = "<group>"; };
 		6C91A9CF8F323DFD4BD6F60E /* Pods-VMediaTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VMediaTest.debug.xcconfig"; path = "Target Support Files/Pods-VMediaTest/Pods-VMediaTest.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -155,7 +161,7 @@
 		3A8C621C24D0233800DDE8CB /* Gateways */ = {
 			isa = PBXGroup;
 			children = (
-				3ABBED4524D0268600AA01B1 /* SMMoviesGateway.swift */,
+				3ABBED4524D0268600AA01B1 /* SMChanelGateway.swift */,
 				3A8C622024D0233800DDE8CB /* SMBaseGateway.swift */,
 			);
 			path = Gateways;
@@ -180,8 +186,11 @@
 		3A8C623224D0233800DDE8CB /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				3AEED31124D063E8003D7199 /* Array+Divide.swift */,
 				3A8C623724D0233800DDE8CB /* UIImage+resizing.swift */,
 				3A8C623924D0233800DDE8CB /* UIViewController.swift */,
+				3AEED31324D06651003D7199 /* DateFormatter+formatters.swift */,
+				3AEED31524D06DDA003D7199 /* JSONDecoder+decoders.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -441,20 +450,23 @@
 				3A8C632824D0233900DDE8CB /* SMMainStorage.swift in Sources */,
 				3A8C632C24D0233900DDE8CB /* UIImage+resizing.swift in Sources */,
 				3AEED30E24D04B4B003D7199 /* SMRecentAirTime.swift in Sources */,
-				3ABBED4624D0268600AA01B1 /* SMMoviesGateway.swift in Sources */,
+				3ABBED4624D0268600AA01B1 /* SMChanelGateway.swift in Sources */,
 				3A8C63D824D0233900DDE8CB /* SMBaseViewController.swift in Sources */,
 				3A8C632E24D0233900DDE8CB /* UIViewController.swift in Sources */,
+				3AEED31624D06DDA003D7199 /* JSONDecoder+decoders.swift in Sources */,
 				3A8C63D524D0233900DDE8CB /* SMBaseCollectionViewController.swift in Sources */,
 				3A8C63DA24D0233900DDE8CB /* SMBaseModelCollectionViewController.swift in Sources */,
 				3A8C63D424D0233900DDE8CB /* SMBaseNavigationController.swift in Sources */,
 				3AEED30C24D04B3A003D7199 /* SMChannel.swift in Sources */,
 				3AEED31024D04B5A003D7199 /* SMProgramItem.swift in Sources */,
 				3A19B3A224D016A300CB7AA0 /* AppDelegate.swift in Sources */,
+				3AEED31224D063E8003D7199 /* Array+Divide.swift in Sources */,
 				3A8C63D724D0233900DDE8CB /* SMBaseModelTableViewController.swift in Sources */,
 				3A774BE824D0436700395523 /* R.generated.swift in Sources */,
 				3A8C635F24D0233900DDE8CB /* SMAppFlowController.swift in Sources */,
 				3A8C631E24D0233900DDE8CB /* SMBaseGateway.swift in Sources */,
 				3A8C63D324D0233900DDE8CB /* SMBaseCell.swift in Sources */,
+				3AEED31424D06651003D7199 /* DateFormatter+formatters.swift in Sources */,
 				3A774BED24D044EC00395523 /* SMChanelsViewController.swift in Sources */,
 				3A8C636724D0233900DDE8CB /* SMUIConfigurator.swift in Sources */,
 				3A8C634424D0233900DDE8CB /* SMAPPConfig.swift in Sources */,

@@ -8,10 +8,10 @@
 
 import Foundation
 
-class SMChannel {
+class SMChannel: Codable {
 
     let id: Int
     let orderNum: Int
     let accessNum: Int
-    let callSign: String
+    let CallSign: String
 }
