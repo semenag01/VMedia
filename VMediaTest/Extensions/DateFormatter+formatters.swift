@@ -16,4 +16,25 @@ extension DateFormatter {
         result.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
         return result
     }()
+    
+    static var onlyDayDF: DateFormatter = {
+        
+        let result: DateFormatter = DateFormatter()
+        result.dateFormat = "yyyy-MM-dd"
+        return result
+    }()
+
+}
+
+extension Date {
+    
+    init(_ year: Int, _ month: Int, _ day: Int) {
+        
+        self = DateFormatter.onlyDayDF.date(from: "\(year)-\(month)-\(day)")!
+    }
+    
+    func onlyDay() -> Date {
+        
+        return Date(self.sm.year, self.sm.month, self.sm.day)
+    }
 }

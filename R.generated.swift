@@ -174,21 +174,63 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.nib` struct is generated, and contains static references to 1 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 4 nibs.
   struct nib {
-    /// Nib `SMChanelsViewController`.
-    static let smChanelsViewController = _R.nib._SMChanelsViewController()
+    /// Nib `SMChannelCell`.
+    static let smChannelCell = _R.nib._SMChannelCell()
+    /// Nib `SMChannelsViewController`.
+    static let smChannelsViewController = _R.nib._SMChannelsViewController()
+    /// Nib `SMProgramCell`.
+    static let smProgramCell = _R.nib._SMProgramCell()
+    /// Nib `SMTimeCell`.
+    static let smTimeCell = _R.nib._SMTimeCell()
 
     #if os(iOS) || os(tvOS)
-    /// `UINib(name: "SMChanelsViewController", in: bundle)`
-    @available(*, deprecated, message: "Use UINib(resource: R.nib.smChanelsViewController) instead")
-    static func smChanelsViewController(_: Void = ()) -> UIKit.UINib {
-      return UIKit.UINib(resource: R.nib.smChanelsViewController)
+    /// `UINib(name: "SMChannelCell", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.smChannelCell) instead")
+    static func smChannelCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.smChannelCell)
     }
     #endif
 
-    static func smChanelsViewController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
-      return R.nib.smChanelsViewController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "SMChannelsViewController", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.smChannelsViewController) instead")
+    static func smChannelsViewController(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.smChannelsViewController)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "SMProgramCell", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.smProgramCell) instead")
+    static func smProgramCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.smProgramCell)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "SMTimeCell", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.smTimeCell) instead")
+    static func smTimeCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.smTimeCell)
+    }
+    #endif
+
+    static func smChannelCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> SMChannelCell? {
+      return R.nib.smChannelCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? SMChannelCell
+    }
+
+    static func smChannelsViewController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+      return R.nib.smChannelsViewController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+    }
+
+    static func smProgramCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> SMProgramCell? {
+      return R.nib.smProgramCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? SMProgramCell
+    }
+
+    static func smTimeCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> SMTimeCell? {
+      return R.nib.smTimeCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? SMTimeCell
     }
 
     fileprivate init() {}
@@ -246,12 +288,45 @@ struct _R: Rswift.Validatable {
 
   #if os(iOS) || os(tvOS)
   struct nib {
-    struct _SMChanelsViewController: Rswift.NibResourceType {
+    struct _SMChannelCell: Rswift.NibResourceType {
       let bundle = R.hostingBundle
-      let name = "SMChanelsViewController"
+      let name = "SMChannelCell"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> SMChannelCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? SMChannelCell
+      }
+
+      fileprivate init() {}
+    }
+
+    struct _SMChannelsViewController: Rswift.NibResourceType {
+      let bundle = R.hostingBundle
+      let name = "SMChannelsViewController"
 
       func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
         return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+      }
+
+      fileprivate init() {}
+    }
+
+    struct _SMProgramCell: Rswift.NibResourceType {
+      let bundle = R.hostingBundle
+      let name = "SMProgramCell"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> SMProgramCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? SMProgramCell
+      }
+
+      fileprivate init() {}
+    }
+
+    struct _SMTimeCell: Rswift.NibResourceType {
+      let bundle = R.hostingBundle
+      let name = "SMTimeCell"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> SMTimeCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? SMTimeCell
       }
 
       fileprivate init() {}

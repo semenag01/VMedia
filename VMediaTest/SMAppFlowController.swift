@@ -15,7 +15,7 @@ final class SMAppFlowController: UIViewController {
     
 	// MARK: - Child view controllers
 
-	private var chanelsVC: SMChanelsViewController = SMChanelsViewController()
+	private var channelsVC: SMChannelsViewController = SMChannelsViewController()
 
     
 	// MARK: - Life cycle
@@ -35,6 +35,6 @@ fileprivate extension SMAppFlowController {
 
 	func initialSetup() {
         
-        addChild(chanelsVC, toContainer: self.view)
+        addChild(channelsVC, toContainer: self.view)
 	}
 }

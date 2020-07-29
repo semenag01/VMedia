@@ -1,5 +1,5 @@
 //
-//  SMChanelGateway.swift
+//  SMChannelGateway.swift
 //  VMediaTest
 //
 //  Created by SEMENIUK OLEKSANDR on 28.07.2020.
@@ -11,11 +11,11 @@ import VRGSoftSwiftIOSKit
 import Alamofire
 import AuthenticationServices
 
-class SMChanelGateway: SMBaseGateway {
+class SMChannelGateway: SMBaseGateway {
 
-    static let shared: SMChanelGateway = SMChanelGateway()
+    static let shared: SMChannelGateway = SMChannelGateway()
 
-    func getChanels() -> SMGatewayRequest {
+    func getChannels() -> SMGatewayRequest {
 
         let request: SMGatewayRequest = self.request(type: .get, path: "Channels") { (_, response) -> SMResponse in
 
