@@ -12,7 +12,8 @@ extension DateFormatter {
     
     static var decodeDF: DateFormatter = {
         
-        let result: DateFormatter = DateFormatter()        
+        let result: DateFormatter = DateFormatter()
+        result.timeZone = TimeZone(secondsFromGMT: 0)
         result.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
         return result
     }()
@@ -24,17 +25,4 @@ extension DateFormatter {
         return result
     }()
 
-}
-
-extension Date {
-    
-    init(_ year: Int, _ month: Int, _ day: Int) {
-        
-        self = DateFormatter.onlyDayDF.date(from: "\(year)-\(month)-\(day)")!
-    }
-    
-    func onlyDay() -> Date {
-        
-        return Date(self.sm.year, self.sm.month, self.sm.day)
-    }
 }

@@ -19,7 +19,7 @@ class SMChannel: Codable {
     
     var avalibleDays: [Date]? {
         
-        return programItems?.map { $0.startTime.onlyDay() }
+        return programItems?.map { $0.startTime.sm.dateAtStartOfDay }
     }
     
     func programItemsFor(day: Date) -> [SMProgramItem]? {
@@ -35,8 +35,8 @@ class SMChannel: Codable {
             let programStart: SMProgramItem = programItems.first,
             let programFinish: SMProgramItem = programItems.last {
             
-            result.0 = programStart.startTime.sm.hour * 60 + programStart.startTime.sm.minute
-            result.1 = programFinish.startTime.sm.hour * 60 + programFinish.startTime.sm.minute + programFinish.length
+            result.0 = programStart.startMinutes()
+            result.1 = programFinish.finishMinutes()
         }
         
         return result

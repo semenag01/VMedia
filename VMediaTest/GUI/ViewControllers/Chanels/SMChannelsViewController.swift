@@ -9,10 +9,11 @@
 
 import VRGSoftSwiftIOSKit
 
-let kSMOneMinutesInPixel: Int = 10
-
 final class SMChannelsViewController: SMBaseCollectionViewController {
-    
+
+    static let minutesInPixel: Int = 10
+    static let cellHeight: Int = 40
+
     override func createPresenter() -> SMBasePresenter {
         
         let result: SMChannelsPresenter = SMChannelsPresenter(vc: self)
@@ -38,6 +39,14 @@ final class SMChannelsViewController: SMBaseCollectionViewController {
     
     // MARK: Base Overrides
     
+    override func configureListView() {
+        
+        super.configureListView()
+        
+        listView?.delaysContentTouches = true
+        listView?.showsVerticalScrollIndicator = true
+    }
+    
     override func configureListDisposer() {
         
         super.configureListDisposer()
@@ -47,7 +56,19 @@ final class SMChannelsViewController: SMBaseCollectionViewController {
         collectionView?.register(UINib(nibName: SMTimeCellData.cellNibName_!, bundle: nil), forCellWithReuseIdentifier: String(describing: SMTimeCellData.self))
 
         collectionView?.register(UINib(nibName: SMProgramCellData.cellNibName_!, bundle: nil), forCellWithReuseIdentifier: String(describing: SMProgramCellData.self))
+
+        collectionView?.register(UINib(nibName: SMEmptyCellData.cellNibName_!, bundle: nil), forCellWithReuseIdentifier: String(describing: SMEmptyCellData.self))
     }
+    
+//    override func createCollectionViewLayout() -> UICollectionViewLayout {
+//        
+//        let result: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+//        
+////        result.scrollDirection = .h
+//        
+//        return result
+//    }
+
     
     // MARK: Logic
     
@@ -63,12 +84,16 @@ final class SMChannelsViewController: SMBaseCollectionViewController {
 }
 
 
+
 // MARK: SMChannelsPresenterProtocol
 
 extension SMChannelsViewController: SMChannelsPresenterProtocol {
     
     func willReloadWithInterval(_ interval: Int) {
         
-        listView?.sm.width = CGFloat(interval * kSMOneMinutesInPixel + 100)
+        let width: CGFloat = CGFloat(interval * SMChannelsViewController.minutesInPixel + SMChannelCellData.cellWidth)
+        listView?.sm.width = width
+                
+        (self.view as? UIScrollView)?.contentSize = CGSize(width: width, height: self.listView?.sm.height ?? 0)
     }
 }

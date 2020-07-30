@@ -53,7 +53,8 @@ class SMBaseCollectionViewController: SMBaseListViewController, SMCollectionDisp
     func createCollectionViewLayout() -> UICollectionViewLayout {
         
         let result: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-        
+        result.minimumLineSpacing = 0
+        result.minimumInteritemSpacing = 0
         return result
     }
     

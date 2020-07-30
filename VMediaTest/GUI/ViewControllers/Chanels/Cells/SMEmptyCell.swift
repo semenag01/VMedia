@@ -1,33 +1,40 @@
 //
-//  SMChannelCell.swift
+//  SMEmptyCell.swift
 //  VMediaTest
 //
-//  Created by OLEKSANDR SEMENIUK on 29.07.2020.
+//  Created by OLEKSANDR SEMENIUK on 30.07.2020.
 //  Copyright © 2020 SEMENIUK OLEKSANDR. All rights reserved.
 
 
 import VRGSoftSwiftIOSKit
 
-class SMChannelCellData: SMCollectionCellData {
+
+class SMEmptyCellData: SMCollectionCellData {
+
+    var breakMinutes: Int = 0
     
-    static let cellWidth = 100
+    required init(breakMinutes aBreakMinutes: Int) {
+        
+        super.init(model: nil)
+        
+        breakMinutes = aBreakMinutes
+        
+        self.cellSize = CGSize(width: aBreakMinutes * SMChannelsViewController.minutesInPixel, height: SMChannelsViewController.cellHeight)
+    }
     
     required init(model aModel: AnyObject?) {
-        
-        super.init(model: aModel)
-
-        self.cellSize = CGSize(width: SMChannelCellData.cellWidth, height: SMChannelsViewController.cellHeight)
+        fatalError("init(model:) has not been implemented")
     }
-
+    
     override class var cellNibName_: String? {
         
-        let result: String = String(describing: SMChannelCell.self)
+        let result: String = String(describing: SMEmptyCell.self)
         
         return result
     }
 }
 
-class SMChannelCell: SMBaseCollectionCell {
+class SMEmptyCell: SMBaseCollectionCell {
  
     
     // MARK: Lifecycle
@@ -35,10 +42,8 @@ class SMChannelCell: SMBaseCollectionCell {
     override func awakeFromNib() {
         
         super.awakeFromNib()
-        
-        self.contentView.backgroundColor = .blue
-        self.contentView.layer.borderWidth = 1
-        self.contentView.layer.borderColor = UIColor.black.cgColor
+                
+        contentView.backgroundColor = .white
     }
     
     override func prepareForReuse() {

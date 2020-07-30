@@ -15,4 +15,44 @@ class SMProgramItem: Codable {
     let startTime: Date
     
     let recentAirTime: SMRecentAirTime
+    
+    func startMinutes() -> Int {
+
+        let today: Date = self.startTime.sm.dateAtStartOfDay
+        let result: Int = today.sm.minutesTo(self.startTime) ?? 0
+                
+        return result
+    }
+
+    func finishMinutes() -> Int {
+        
+        let result: Int = startMinutes() + self.length
+        
+        return result
+    }
+
+    
+    func breakMinutesWithNext(_ aProgramItem: SMProgramItem?) -> Int {
+        
+        var result: Int = 0
+        
+        if let programItem: SMProgramItem = aProgramItem {
+            
+            result = programItem.startMinutes() - self.finishMinutes()
+        }
+        print(result)
+        return result
+    }
+    
+    func breakMinutesWithBefore(_ aProgramItem: SMProgramItem?) -> Int {
+        
+        var result: Int = self.startMinutes()
+        
+        if let programItem: SMProgramItem = aProgramItem {
+            
+            result = programItem.startMinutes() - self.finishMinutes()
+        }
+        print(result)
+        return result
+    }
 }

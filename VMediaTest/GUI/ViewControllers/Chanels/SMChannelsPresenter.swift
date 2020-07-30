@@ -54,7 +54,14 @@ final class SMChannelsPresenter: SMBasePresenter {
                     
                     for channel in channels {
                         
-                        channel.programItems = programItems.filter{ $0.recentAirTime.channelID == channel.id }
+                        var items: [SMProgramItem] = programItems.filter{ $0.recentAirTime.channelID == channel.id }
+                        items.sort { (pi1, pi2) -> Bool in
+                            return pi1.startTime < pi2.startTime
+                        }
+//                        items.removeLast(3)
+//                        items.remove(at: 4)
+
+                        channel.programItems = items
                     }
                     
                     if let day: Date = self?.allAvailableDays()?.first {
@@ -105,10 +112,20 @@ final class SMChannelsPresenter: SMBasePresenter {
                 
                 section.addCellData(cd)
                 
-                for programItem in programItems {
+                for (index, programItem) in programItems.enumerated() {
                     
+                    let programItemBefore: SMProgramItem? = index - 1 > 0 ? programItems[index - 1] : nil
+                    
+                        let breakMinutes: Int = programItem.breakMinutesWithBefore(programItemBefore)
+                        
+                        if breakMinutes > 0 {
+                            
+                            let cd: SMEmptyCellData = SMEmptyCellData(breakMinutes: breakMinutes)
+                            section.addCellData(cd)
+                        }
+
                     let cd: SMProgramCellData = SMProgramCellData(model: programItem)
-                    
+                                        
                     section.addCellData(cd)
                 }
             }

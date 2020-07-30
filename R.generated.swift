@@ -174,12 +174,14 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.nib` struct is generated, and contains static references to 4 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 5 nibs.
   struct nib {
     /// Nib `SMChannelCell`.
     static let smChannelCell = _R.nib._SMChannelCell()
     /// Nib `SMChannelsViewController`.
     static let smChannelsViewController = _R.nib._SMChannelsViewController()
+    /// Nib `SMEmptyCell`.
+    static let smEmptyCell = _R.nib._SMEmptyCell()
     /// Nib `SMProgramCell`.
     static let smProgramCell = _R.nib._SMProgramCell()
     /// Nib `SMTimeCell`.
@@ -198,6 +200,14 @@ struct R: Rswift.Validatable {
     @available(*, deprecated, message: "Use UINib(resource: R.nib.smChannelsViewController) instead")
     static func smChannelsViewController(_: Void = ()) -> UIKit.UINib {
       return UIKit.UINib(resource: R.nib.smChannelsViewController)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "SMEmptyCell", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.smEmptyCell) instead")
+    static func smEmptyCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.smEmptyCell)
     }
     #endif
 
@@ -221,8 +231,12 @@ struct R: Rswift.Validatable {
       return R.nib.smChannelCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? SMChannelCell
     }
 
-    static func smChannelsViewController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
-      return R.nib.smChannelsViewController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+    static func smChannelsViewController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIScrollView? {
+      return R.nib.smChannelsViewController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIScrollView
+    }
+
+    static func smEmptyCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> SMEmptyCell? {
+      return R.nib.smEmptyCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? SMEmptyCell
     }
 
     static func smProgramCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> SMProgramCell? {
@@ -303,8 +317,19 @@ struct _R: Rswift.Validatable {
       let bundle = R.hostingBundle
       let name = "SMChannelsViewController"
 
-      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
-        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIScrollView? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIScrollView
+      }
+
+      fileprivate init() {}
+    }
+
+    struct _SMEmptyCell: Rswift.NibResourceType {
+      let bundle = R.hostingBundle
+      let name = "SMEmptyCell"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> SMEmptyCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? SMEmptyCell
       }
 
       fileprivate init() {}

@@ -140,6 +140,7 @@ class SMBaseTableViewController: SMBaseListViewController, SMTableDisposerDelega
     // MARK: SMTableSectionsProtocol
 
     func setupSections(_ aSections: [SMSectionReadonly]) {
+        
         tableDisposer?.sections = aSections
         tableDisposer?.reloadData()
     }

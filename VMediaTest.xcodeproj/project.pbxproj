@@ -13,6 +13,8 @@
 		3A774BEC24D044EC00395523 /* SMChannelsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A774BE924D044EC00395523 /* SMChannelsPresenter.swift */; };
 		3A774BED24D044EC00395523 /* SMChannelsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A774BEA24D044EC00395523 /* SMChannelsViewController.swift */; };
 		3A774BEE24D044EC00395523 /* SMChannelsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A774BEB24D044EC00395523 /* SMChannelsViewController.xib */; };
+		3A88640724D2BEAD00589610 /* SMEmptyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A88640524D2BEAD00589610 /* SMEmptyCell.swift */; };
+		3A88640824D2BEAD00589610 /* SMEmptyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A88640624D2BEAD00589610 /* SMEmptyCell.xib */; };
 		3A8C631E24D0233900DDE8CB /* SMBaseGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8C622024D0233800DDE8CB /* SMBaseGateway.swift */; };
 		3A8C632824D0233900DDE8CB /* SMMainStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8C623124D0233800DDE8CB /* SMMainStorage.swift */; };
 		3A8C632C24D0233900DDE8CB /* UIImage+resizing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8C623724D0233800DDE8CB /* UIImage+resizing.swift */; };
@@ -60,6 +62,8 @@
 		3A774BE924D044EC00395523 /* SMChannelsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMChannelsPresenter.swift; sourceTree = "<group>"; };
 		3A774BEA24D044EC00395523 /* SMChannelsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMChannelsViewController.swift; sourceTree = "<group>"; };
 		3A774BEB24D044EC00395523 /* SMChannelsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SMChannelsViewController.xib; sourceTree = "<group>"; };
+		3A88640524D2BEAD00589610 /* SMEmptyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMEmptyCell.swift; sourceTree = "<group>"; };
+		3A88640624D2BEAD00589610 /* SMEmptyCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SMEmptyCell.xib; sourceTree = "<group>"; };
 		3A8C622024D0233800DDE8CB /* SMBaseGateway.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMBaseGateway.swift; sourceTree = "<group>"; };
 		3A8C623124D0233800DDE8CB /* SMMainStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMMainStorage.swift; sourceTree = "<group>"; };
 		3A8C623724D0233800DDE8CB /* UIImage+resizing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+resizing.swift"; sourceTree = "<group>"; };
@@ -316,6 +320,8 @@
 				3AA0BED424D1580700AACC4C /* SMTimeCell.xib */,
 				3AA0BED724D158C000AACC4C /* SMProgramCell.swift */,
 				3AA0BED824D158C000AACC4C /* SMProgramCell.xib */,
+				3A88640524D2BEAD00589610 /* SMEmptyCell.swift */,
+				3A88640624D2BEAD00589610 /* SMEmptyCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -405,6 +411,7 @@
 				3A774BEE24D044EC00395523 /* SMChannelsViewController.xib in Resources */,
 				3AA0BED224D157EE00AACC4C /* SMChannelCell.xib in Resources */,
 				3A8C634624D0233900DDE8CB /* Assets.xcassets in Resources */,
+				3A88640824D2BEAD00589610 /* SMEmptyCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -509,6 +516,7 @@
 				3A8C63D624D0233900DDE8CB /* SMBaseListViewController.swift in Sources */,
 				3A8C636924D0233900DDE8CB /* SMBaseModuleListPresenter.swift in Sources */,
 				3AA0BED524D1580700AACC4C /* SMTimeCell.swift in Sources */,
+				3A88640724D2BEAD00589610 /* SMEmptyCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -16,7 +16,7 @@ class SMProgramCellData: SMCollectionCellData {
         
         if let pi: SMProgramItem = aModel as? SMProgramItem {
             
-            self.cellSize = CGSize(width: pi.length * kSMOneMinutesInPixel, height: 40)
+            self.cellSize = CGSize(width: pi.length * SMChannelsViewController.minutesInPixel, height: SMChannelsViewController.cellHeight)
         }
     }
     
@@ -30,6 +30,9 @@ class SMProgramCellData: SMCollectionCellData {
 
 class SMProgramCell: SMBaseCollectionCell {
  
+    @IBOutlet weak var lbTitle: UILabel!
+    @IBOutlet weak var lbTime: UILabel!
+    
     
     // MARK: Lifecycle
     
@@ -38,6 +41,8 @@ class SMProgramCell: SMBaseCollectionCell {
         super.awakeFromNib()
         
         self.contentView.backgroundColor = .green
+        self.contentView.layer.borderWidth = 1
+        self.contentView.layer.borderColor = UIColor.darkGray.cgColor
     }
     
     override func prepareForReuse() {
@@ -52,12 +57,17 @@ class SMProgramCell: SMBaseCollectionCell {
     override func setupCellData(_ aCellData: SMListCellData) {
         
         super.setupCellData(aCellData)
-        
+
     }
     
     override func setupWith(model aModel: AnyObject?) {
         
         super.setupWith(model: aModel)
         
+        if let pi: SMProgramItem = aModel as? SMProgramItem {
+            
+            lbTitle.text = pi.name
+            lbTime.text = pi.startTime.description + "\(pi.length)"
+        }
     }
 }
