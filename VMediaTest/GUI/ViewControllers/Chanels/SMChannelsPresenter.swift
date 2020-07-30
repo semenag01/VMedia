@@ -30,7 +30,7 @@ final class SMChannelsPresenter: SMBasePresenter {
         }
         
         return result.sorted { (d1, d2) -> Bool in
-            return d1 > d2
+            return d1 < d2
         }
     }
     
@@ -58,9 +58,11 @@ final class SMChannelsPresenter: SMBasePresenter {
                         items.sort { (pi1, pi2) -> Bool in
                             return pi1.startTime < pi2.startTime
                         }
-//                        items.removeLast(3)
-//                        items.remove(at: 4)
 
+//                        items.forEach { (item) in
+//                            
+//                            print("sort_items\(item.startMinutes())_\(item.finishMinutes())")
+//                        }
                         channel.programItems = items
                     }
                     
@@ -90,7 +92,6 @@ final class SMChannelsPresenter: SMBasePresenter {
 
             if index == 0 {
                 
-                minMinutes = interval.0
                 maxMinutes = interval.1
             } else {
                 
@@ -114,8 +115,10 @@ final class SMChannelsPresenter: SMBasePresenter {
                 
                 for (index, programItem) in programItems.enumerated() {
                     
-                    let programItemBefore: SMProgramItem? = index - 1 > 0 ? programItems[index - 1] : nil
+                    let programItemBefore: SMProgramItem? = index - 1 >= 0 ? programItems[index - 1] : nil
                     
+                    if index == 0 || programItemBefore != nil {
+                        
                         let breakMinutes: Int = programItem.breakMinutesWithBefore(programItemBefore)
                         
                         if breakMinutes > 0 {
@@ -123,6 +126,7 @@ final class SMChannelsPresenter: SMBasePresenter {
                             let cd: SMEmptyCellData = SMEmptyCellData(breakMinutes: breakMinutes)
                             section.addCellData(cd)
                         }
+                    }
 
                     let cd: SMProgramCellData = SMProgramCellData(model: programItem)
                                         

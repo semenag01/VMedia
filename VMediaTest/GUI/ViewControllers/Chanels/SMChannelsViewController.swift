@@ -11,7 +11,7 @@ import VRGSoftSwiftIOSKit
 
 final class SMChannelsViewController: SMBaseCollectionViewController {
 
-    static let minutesInPixel: Int = 10
+    static let minutesInPixel: Int = 2
     static let cellHeight: Int = 40
 
     override func createPresenter() -> SMBasePresenter {

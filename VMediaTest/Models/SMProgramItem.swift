@@ -50,9 +50,17 @@ class SMProgramItem: Codable {
         
         if let programItem: SMProgramItem = aProgramItem {
             
-            result = programItem.startMinutes() - self.finishMinutes()
+            result = -(self.startMinutes() - programItem.finishMinutes())
         }
-        print(result)
+        
+        if result < 0 {
+            
+        }
+        
+        if result == 92 {
+            
+        }
+        print("breakMinutesWithBefore_\(result)")
         return result
     }
 }

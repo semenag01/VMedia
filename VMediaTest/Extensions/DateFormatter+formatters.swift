@@ -18,10 +18,10 @@ extension DateFormatter {
         return result
     }()
     
-    static var onlyDayDF: DateFormatter = {
+    static var uiTimeDF: DateFormatter = {
         
         let result: DateFormatter = DateFormatter()
-        result.dateFormat = "yyyy-MM-dd"
+        result.dateFormat = "HH:mm dd.MM"
         return result
     }()
 

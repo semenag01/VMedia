@@ -16,6 +16,9 @@ class SMProgramCellData: SMCollectionCellData {
         
         if let pi: SMProgramItem = aModel as? SMProgramItem {
             
+            let widthPICell: Int = pi.length * SMChannelsViewController.minutesInPixel
+            print("widthPICell_\(widthPICell)")
+            
             self.cellSize = CGSize(width: pi.length * SMChannelsViewController.minutesInPixel, height: SMChannelsViewController.cellHeight)
         }
     }
@@ -43,6 +46,9 @@ class SMProgramCell: SMBaseCollectionCell {
         self.contentView.backgroundColor = .green
         self.contentView.layer.borderWidth = 1
         self.contentView.layer.borderColor = UIColor.darkGray.cgColor
+        
+        self.lbTitle.adjustsFontSizeToFitWidth = true
+        self.lbTime.adjustsFontSizeToFitWidth = true
     }
     
     override func prepareForReuse() {
@@ -67,7 +73,7 @@ class SMProgramCell: SMBaseCollectionCell {
         if let pi: SMProgramItem = aModel as? SMProgramItem {
             
             lbTitle.text = pi.name
-            lbTime.text = pi.startTime.description + "\(pi.length)"
+            lbTime.text = DateFormatter.uiTimeDF.string(from: pi.startTime) + "\nlength = \(pi.length)"
         }
     }
 }

@@ -31,9 +31,9 @@ class SMChannel: Codable {
 
         var result: (Int, Int) = (0, 0)
         
-        if let programItems: [SMProgramItem] = self.programItemsFor(day: day),
-            let programStart: SMProgramItem = programItems.first,
-            let programFinish: SMProgramItem = programItems.last {
+        if let programItems_: [SMProgramItem] = self.programItemsFor(day: day),
+            let programStart: SMProgramItem = programItems_.first,
+            let programFinish: SMProgramItem = programItems_.last {
             
             result.0 = programStart.startMinutes()
             result.1 = programFinish.finishMinutes()

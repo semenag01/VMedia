@@ -29,6 +29,7 @@ class SMChannelCellData: SMCollectionCellData {
 
 class SMChannelCell: SMBaseCollectionCell {
  
+    @IBOutlet weak var lbTitle: UILabel!
     
     // MARK: Lifecycle
     
@@ -36,7 +37,7 @@ class SMChannelCell: SMBaseCollectionCell {
         
         super.awakeFromNib()
         
-        self.contentView.backgroundColor = .blue
+        self.contentView.backgroundColor = .yellow
         self.contentView.layer.borderWidth = 1
         self.contentView.layer.borderColor = UIColor.black.cgColor
     }
@@ -60,5 +61,9 @@ class SMChannelCell: SMBaseCollectionCell {
         
         super.setupWith(model: aModel)
         
+        if let channel: SMChannel = aModel as? SMChannel {
+            
+            lbTitle.text = channel.CallSign
+        }
     }
 }

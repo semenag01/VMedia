@@ -36,6 +36,7 @@ class SMEmptyCellData: SMCollectionCellData {
 
 class SMEmptyCell: SMBaseCollectionCell {
  
+    @IBOutlet weak var lbTitle: UILabel!
     
     // MARK: Lifecycle
     
@@ -44,6 +45,9 @@ class SMEmptyCell: SMBaseCollectionCell {
         super.awakeFromNib()
                 
         contentView.backgroundColor = .white
+        
+        self.contentView.layer.borderWidth = 1
+        self.contentView.layer.borderColor = UIColor.black.cgColor
     }
     
     override func prepareForReuse() {
@@ -58,12 +62,15 @@ class SMEmptyCell: SMBaseCollectionCell {
     override func setupCellData(_ aCellData: SMListCellData) {
         
         super.setupCellData(aCellData)
-        
+    
+        if let cd: SMEmptyCellData = aCellData as? SMEmptyCellData {
+            
+            lbTitle.text = "\(cd.breakMinutes)"
+        }
     }
     
     override func setupWith(model aModel: AnyObject?) {
         
         super.setupWith(model: aModel)
-        
     }
 }
