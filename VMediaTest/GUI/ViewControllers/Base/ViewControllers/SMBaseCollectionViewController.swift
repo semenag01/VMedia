@@ -20,6 +20,16 @@ class SMBaseCollectionViewController: SMBaseListViewController, SMCollectionDisp
         super.viewDidLoad()
     }
     
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        
+        super.viewWillTransition(to: size, with: coordinator)
+        
+        DispatchQueue.main.async {
+            
+            (self.collectionView?.collectionViewLayout as? UICollectionViewFlowLayout)?.invalidateLayout()
+        }
+    }
+    
     override func createListView() -> UICollectionView {
         
         let collectionViewLayout: UICollectionViewLayout = createCollectionViewLayout()

@@ -10,6 +10,8 @@ import VRGSoftSwiftIOSKit
 
 class SMTimeCellData: SMCollectionCellData {
     
+    var text: String?
+    
     override class var cellNibName_: String? {
         
         let result: String = String(describing: SMTimeCell.self)
@@ -20,6 +22,7 @@ class SMTimeCellData: SMCollectionCellData {
 
 class SMTimeCell: SMBaseCollectionCell {
  
+    @IBOutlet weak var lbTitle: UILabel!
     
     // MARK: Lifecycle
     
@@ -39,7 +42,7 @@ class SMTimeCell: SMBaseCollectionCell {
     
     func clean() {
         
-//        lbTitle.text = nil
+        lbTitle.text = nil
     }
 
     
@@ -49,6 +52,10 @@ class SMTimeCell: SMBaseCollectionCell {
         
         super.setupCellData(aCellData)
         
+        if let cd: SMTimeCellData = aCellData as? SMTimeCellData {
+            
+            lbTitle.text = cd.text
+        }
     }
     
     override func setupWith(model aModel: AnyObject?) {

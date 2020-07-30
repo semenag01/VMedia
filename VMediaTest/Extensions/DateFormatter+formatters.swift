@@ -21,8 +21,14 @@ extension DateFormatter {
     static var uiTimeDF: DateFormatter = {
         
         let result: DateFormatter = DateFormatter()
-        result.dateFormat = "HH:mm dd.MM"
+        result.dateFormat = "HH:mm"
         return result
     }()
 
+    static var uiOnlyDateDF: DateFormatter = {
+        
+        let result: DateFormatter = DateFormatter()
+        result.dateFormat = "MMMM dd"
+        return result
+    }()
 }

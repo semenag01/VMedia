@@ -90,6 +90,37 @@ final class SMChannelsPresenter: SMBasePresenter {
         let minMinutes: Int = cMin?.intervalFor(day: day).0 ?? 0
         let maxMinutes: Int = cMax?.intervalFor(day: day).1 ?? 0
         
+        do {
+            let section: SMCollectonSection = SMCollectonSection()
+            sections.append(section)
+            
+            var i: Int = 0
+            var time: Int = minMinutes;
+            if var timeStartFirst: Date = cMin?.programItems?.first?.startTime,
+                let timeStartLast: Date = cMax?.programItems?.first?.startTime {
+                
+                while time < maxMinutes  {
+                    
+                    let cd: SMTimeCellData = SMTimeCellData()
+                    
+                    if i == 0 {
+                        cd.cellSize = CGSize(width: 100, height: SMChannelsViewController.cellHeight)
+                        cd.text = DateFormatter.uiOnlyDateDF.string(from: timeStartFirst)
+                    } else {
+                        
+                        cd.cellSize = CGSize(width: 30 * SMChannelsViewController.minutesInPixel, height: SMChannelsViewController.cellHeight)
+                        cd.text = DateFormatter.uiTimeDF.string(from: timeStartFirst)
+                        
+                        time += 30
+                        timeStartFirst = timeStartFirst.sm.dateByAddingMinutes(30) ?? timeStartFirst
+                    }
+                    
+                    i += 1
+                    section.addCellData(cd)
+                }
+            }
+        }
+        
         for channel in channels {
                         
             if let programItems: [SMProgramItem] = channel.programItemsFor(day: day) {
