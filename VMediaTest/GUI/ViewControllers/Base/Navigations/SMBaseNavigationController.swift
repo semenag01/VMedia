@@ -15,9 +15,6 @@ class SMBaseNavigationController: UINavigationController, UINavigationController
         
         super.viewDidLoad()
         
-//        let textAttributes: [NSAttributedString.Key: Any] = [NSAttributedString.Key.foregroundColor: R.color.blackTitle() as Any]
-//        navigationBar.titleTextAttributes = textAttributes
-        
         delegate = self
         interactivePopGestureRecognizer?.delegate = self
     }
@@ -47,6 +44,11 @@ class SMBaseNavigationController: UINavigationController, UINavigationController
     
     func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
         return viewControllers.count > 1
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        
+        return topViewController?.preferredStatusBarStyle ?? UIStatusBarStyle.default
     }
     
     

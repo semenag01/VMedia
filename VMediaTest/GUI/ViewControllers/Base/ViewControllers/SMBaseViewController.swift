@@ -253,6 +253,11 @@ class SMBaseViewController: SMViewController {
         self.present(nc, animated: withAnimation, completion: nil)
     }
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        
+        return .lightContent
+    }
+
     
     // MARK: Localiztion
     

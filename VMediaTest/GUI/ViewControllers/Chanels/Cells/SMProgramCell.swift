@@ -33,8 +33,7 @@ class SMProgramCellData: SMCollectionCellData {
 
 class SMProgramCell: SMBaseCollectionCell {
  
-    @IBOutlet weak var lbTitle: UILabel!
-    @IBOutlet weak var lbTime: UILabel!
+    @IBOutlet weak var lbTitle: SMLabel!
     
     
     // MARK: Lifecycle
@@ -43,20 +42,22 @@ class SMProgramCell: SMBaseCollectionCell {
         
         super.awakeFromNib()
         
-        self.contentView.backgroundColor = .green
-        self.contentView.layer.borderWidth = 1
-        self.contentView.layer.borderColor = UIColor.darkGray.cgColor
-        
-        self.lbTitle.adjustsFontSizeToFitWidth = true
-        self.lbTime.adjustsFontSizeToFitWidth = true
+        lbTitle.adjustsFontSizeToFitWidth = true
+        clean()
     }
     
     override func prepareForReuse() {
         
         super.prepareForReuse()
         
+        clean()
     }
     
+    func clean() {
+        
+        lbTitle.text = nil
+    }
+
     
     // MARK: Base Overrides
     
@@ -72,8 +73,7 @@ class SMProgramCell: SMBaseCollectionCell {
         
         if let pi: SMProgramItem = aModel as? SMProgramItem {
             
-            lbTitle.text = pi.name
-            lbTime.text = DateFormatter.uiTimeDF.string(from: pi.startTime) + "\nlength = \(pi.length)"
+            lbTitle.text = pi.name + " at " + DateFormatter.uiTimeDF.string(from: pi.startTime)
         }
     }
 }

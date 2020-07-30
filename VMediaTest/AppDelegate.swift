@@ -28,8 +28,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		window?.makeKeyAndVisible()
 
 		return true
-	}
-
+    }
+    
 	private func configureGateways() {
 
 		SMGatewayConfigurator.shared.url = URL(string: SMAPPConfig.baseUrlWithApiVersion)

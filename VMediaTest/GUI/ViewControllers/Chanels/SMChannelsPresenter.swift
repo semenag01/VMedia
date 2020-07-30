@@ -59,10 +59,6 @@ final class SMChannelsPresenter: SMBasePresenter {
                             return pi1.startTime < pi2.startTime
                         }
 
-//                        items.forEach { (item) in
-//                            
-//                            print("sort_items\(item.startMinutes())_\(item.finishMinutes())")
-//                        }
                         channel.programItems = items
                     }
                     
@@ -82,50 +78,47 @@ final class SMChannelsPresenter: SMBasePresenter {
         }) else { return }
 
         var sections: [SMCollectonSection] = []
-        
-        var minMinutes: Int = 0
-        var maxMinutes: Int = 0
-        
-        for (index, channel) in channels.enumerated() {
-            
-            let interval: (Int, Int) = channel.intervalFor(day: day)
 
-            if index == 0 {
-                
-                maxMinutes = interval.1
-            } else {
-                
-                if interval.0 < minMinutes {
-                    minMinutes = interval.0
-                }
-                
-                if interval.1 > maxMinutes {
-                    maxMinutes = interval.1
-                }
-            }
-            
+        let cMin: SMChannel? = channels.min { (c1, c2) -> Bool in
+            return c1.intervalFor(day: day).0 < c2.intervalFor(day: day).0
+        }
+
+        let cMax: SMChannel? = channels.max { (c1, c2) -> Bool in
+            return c1.intervalFor(day: day).1 < c2.intervalFor(day: day).1
+        }
+        
+        let minMinutes: Int = cMin?.intervalFor(day: day).0 ?? 0
+        let maxMinutes: Int = cMax?.intervalFor(day: day).1 ?? 0
+        
+        for channel in channels {
+                        
             if let programItems: [SMProgramItem] = channel.programItemsFor(day: day) {
                 
                 let section: SMCollectonSection = SMCollectonSection()
                 sections.append(section)
                 
                 let cd: SMChannelCellData = SMChannelCellData(model: channel)
-                
                 section.addCellData(cd)
                 
                 for (index, programItem) in programItems.enumerated() {
                     
                     let programItemBefore: SMProgramItem? = index - 1 >= 0 ? programItems[index - 1] : nil
                     
-                    if index == 0 || programItemBefore != nil {
+                    var breakMinutes: Int = 0
+
+                    if index == 0 {
                         
-                        let breakMinutes: Int = programItem.breakMinutesWithBefore(programItemBefore)
+                        breakMinutes = programItem.breakMinutesWithBefore(nil)
+                        breakMinutes -= minMinutes
+                    } else if programItemBefore != nil {
                         
-                        if breakMinutes > 0 {
-                            
-                            let cd: SMEmptyCellData = SMEmptyCellData(breakMinutes: breakMinutes)
-                            section.addCellData(cd)
-                        }
+                        breakMinutes = programItem.breakMinutesWithBefore(programItemBefore)
+                    }
+                    
+                    if breakMinutes > 0 {
+                        
+                        let cd: SMEmptyCellData = SMEmptyCellData(breakMinutes: breakMinutes)
+                        section.addCellData(cd)
                     }
 
                     let cd: SMProgramCellData = SMProgramCellData(model: programItem)

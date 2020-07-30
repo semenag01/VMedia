@@ -43,19 +43,22 @@ class SMEmptyCell: SMBaseCollectionCell {
     override func awakeFromNib() {
         
         super.awakeFromNib()
-                
-        contentView.backgroundColor = .white
         
-        self.contentView.layer.borderWidth = 1
-        self.contentView.layer.borderColor = UIColor.black.cgColor
+        clean()
     }
     
     override func prepareForReuse() {
         
         super.prepareForReuse()
         
+        clean()
     }
     
+    func clean() {
+        
+        lbTitle.text = nil
+    }
+
     
     // MARK: Base Overrides
     

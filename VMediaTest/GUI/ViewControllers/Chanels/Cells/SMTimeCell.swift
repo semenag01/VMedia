@@ -27,15 +27,21 @@ class SMTimeCell: SMBaseCollectionCell {
         
         super.awakeFromNib()
         
-        self.contentView.backgroundColor = .red
+        clean()
     }
     
     override func prepareForReuse() {
         
         super.prepareForReuse()
         
+        clean()
     }
     
+    func clean() {
+        
+//        lbTitle.text = nil
+    }
+
     
     // MARK: Base Overrides
     

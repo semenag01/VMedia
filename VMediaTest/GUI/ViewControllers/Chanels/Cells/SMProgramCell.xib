@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -16,35 +17,44 @@
                 <rect key="frame" x="0.0" y="0.0" width="210" height="50"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9hQ-mY-G6y">
-                        <rect key="frame" x="0.0" y="0.0" width="210" height="14.5"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9hQ-mY-G6y" customClass="SMLabel" customModule="VRGSoftSwiftIOSKit">
+                        <rect key="frame" x="2" y="2" width="206" height="46"/>
+                        <color key="backgroundColor" name="programColor"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                        <nil key="textColor"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hrG-t2-Qu2">
-                        <rect key="frame" x="0.0" y="14.5" width="210" height="14.5"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="leftT">
+                                <real key="value" value="5"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="rightT">
+                                <real key="value" value="5"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </label>
                 </subviews>
             </view>
+            <color key="backgroundColor" name="separatorColor"/>
             <constraints>
-                <constraint firstItem="hrG-t2-Qu2" firstAttribute="top" secondItem="9hQ-mY-G6y" secondAttribute="bottom" id="RMH-QC-bQQ"/>
-                <constraint firstItem="hrG-t2-Qu2" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Re4-5A-QU0"/>
-                <constraint firstAttribute="trailing" secondItem="hrG-t2-Qu2" secondAttribute="trailing" id="UES-OC-HCp"/>
-                <constraint firstAttribute="trailing" secondItem="9hQ-mY-G6y" secondAttribute="trailing" id="bQp-JH-fsy"/>
-                <constraint firstItem="9hQ-mY-G6y" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="cyf-RF-T33"/>
-                <constraint firstItem="9hQ-mY-G6y" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="l01-Bp-1rf"/>
+                <constraint firstAttribute="trailing" secondItem="9hQ-mY-G6y" secondAttribute="trailing" constant="2" id="bQp-JH-fsy"/>
+                <constraint firstItem="9hQ-mY-G6y" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="2" id="cyf-RF-T33"/>
+                <constraint firstAttribute="bottom" secondItem="9hQ-mY-G6y" secondAttribute="bottom" constant="2" id="fYs-bP-8L7"/>
+                <constraint firstItem="9hQ-mY-G6y" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="2" id="l01-Bp-1rf"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="210" height="50"/>
             <connections>
-                <outlet property="lbTime" destination="hrG-t2-Qu2" id="WVj-1p-orX"/>
                 <outlet property="lbTitle" destination="9hQ-mY-G6y" id="67j-zd-S1j"/>
             </connections>
             <point key="canvasLocation" x="253.62318840579712" y="109.82142857142857"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <namedColor name="programColor">
+            <color red="0.044158600270000001" green="0.09387419373" blue="0.15896630289999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="separatorColor">
+            <color red="0.088891588150000006" green="0.1483545899" blue="0.2541776597" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>

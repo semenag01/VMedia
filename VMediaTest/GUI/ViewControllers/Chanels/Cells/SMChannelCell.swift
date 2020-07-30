@@ -29,7 +29,7 @@ class SMChannelCellData: SMCollectionCellData {
 
 class SMChannelCell: SMBaseCollectionCell {
  
-    @IBOutlet weak var lbTitle: UILabel!
+    @IBOutlet weak var lbTitle: SMLabel!
     
     // MARK: Lifecycle
     
@@ -37,15 +37,19 @@ class SMChannelCell: SMBaseCollectionCell {
         
         super.awakeFromNib()
         
-        self.contentView.backgroundColor = .yellow
-        self.contentView.layer.borderWidth = 1
-        self.contentView.layer.borderColor = UIColor.black.cgColor
+        clean()
     }
     
     override func prepareForReuse() {
         
         super.prepareForReuse()
         
+        clean()
+    }
+    
+    func clean() {
+        
+        lbTitle.text = nil
     }
     
     

@@ -105,6 +105,45 @@ struct R: Rswift.Validatable {
   }
   #endif
 
+  /// This `R.color` struct is generated, and contains static references to 3 colors.
+  struct color {
+    /// Color `chanelColor`.
+    static let chanelColor = Rswift.ColorResource(bundle: R.hostingBundle, name: "chanelColor")
+    /// Color `programColor`.
+    static let programColor = Rswift.ColorResource(bundle: R.hostingBundle, name: "programColor")
+    /// Color `separatorColor`.
+    static let separatorColor = Rswift.ColorResource(bundle: R.hostingBundle, name: "separatorColor")
+
+    #if os(iOS) || os(tvOS)
+    /// `UIColor(named: "chanelColor", bundle: ..., traitCollection: ...)`
+    @available(tvOS 11.0, *)
+    @available(iOS 11.0, *)
+    static func chanelColor(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
+      return UIKit.UIColor(resource: R.color.chanelColor, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIColor(named: "programColor", bundle: ..., traitCollection: ...)`
+    @available(tvOS 11.0, *)
+    @available(iOS 11.0, *)
+    static func programColor(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
+      return UIKit.UIColor(resource: R.color.programColor, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIColor(named: "separatorColor", bundle: ..., traitCollection: ...)`
+    @available(tvOS 11.0, *)
+    @available(iOS 11.0, *)
+    static func separatorColor(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIColor? {
+      return UIKit.UIColor(resource: R.color.separatorColor, compatibleWith: traitCollection)
+    }
+    #endif
+
+    fileprivate init() {}
+  }
+
   /// This `R.image` struct is generated, and contains static references to 7 images.
   struct image {
     /// Image `logo_app`.
