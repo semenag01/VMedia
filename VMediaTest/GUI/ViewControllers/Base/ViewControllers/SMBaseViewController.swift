@@ -169,20 +169,18 @@ class SMBaseViewController: SMViewController {
         presenter?.close()
     }
     
+    override var shouldAutorotate: Bool { return true }
+
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         
         if SMHelper.isIPad {
-            return [UIInterfaceOrientationMask.portrait, UIInterfaceOrientationMask.landscape]
+            return [UIInterfaceOrientationMask.landscape]
         } else {
             
             return [UIInterfaceOrientationMask.portrait]
         }
     }
-    
-    var canShowPlayerView: Bool {
-        return false
-    }
-    
+        
 
     // MARK: Alert
     
@@ -258,17 +256,6 @@ class SMBaseViewController: SMViewController {
         return .lightContent
     }
 
-    override var shouldAutorotate: Bool { return true }
-    
-    override var preferredInterfaceOrientationForPresentation: UIInterfaceOrientation {
-        
-        if SMHelper.isIPad {
-            return UIInterfaceOrientation.landscapeLeft
-        } else {
-            return UIInterfaceOrientation.portrait
-        }
-    }
-    
     
     // MARK: Localiztion
     

@@ -17,7 +17,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="210" height="50"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9hQ-mY-G6y" customClass="SMLabel" customModule="VRGSoftSwiftIOSKit">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9hQ-mY-G6y" customClass="SMLabel" customModule="VRGSoftSwiftIOSKit">
                         <rect key="frame" x="2" y="2" width="206" height="46"/>
                         <color key="backgroundColor" name="programColor"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -51,10 +51,10 @@
     </objects>
     <resources>
         <namedColor name="programColor">
-            <color red="0.044158600270000001" green="0.09387419373" blue="0.15896630289999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.043999999761581421" green="0.093999996781349182" blue="0.15899999439716339" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="separatorColor">
-            <color red="0.088891588150000006" green="0.1483545899" blue="0.2541776597" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.089000001549720764" green="0.14800000190734863" blue="0.25400000810623169" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

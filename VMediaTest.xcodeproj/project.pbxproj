@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A04FF2E24D4C46400F86955 /* README!!!.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 3A04FF2D24D4C46400F86955 /* README!!!.rtf */; };
 		3A19B3A224D016A300CB7AA0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A19B3A124D016A300CB7AA0 /* AppDelegate.swift */; };
 		3A6AE14124D1A42500E67DE8 /* Set+help.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A6AE14024D1A42500E67DE8 /* Set+help.swift */; };
 		3A774BE824D0436700395523 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A774BE724D0436700395523 /* R.generated.swift */; };
@@ -54,6 +55,7 @@
 
 /* Begin PBXFileReference section */
 		0C6511FE7C64DCA9C78B2A40 /* Pods_VMediaTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VMediaTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3A04FF2D24D4C46400F86955 /* README!!!.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = "README!!!.rtf"; sourceTree = "<group>"; };
 		3A19B39E24D016A300CB7AA0 /* VMediaTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VMediaTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A19B3A124D016A300CB7AA0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3A19B3AF24D016A600CB7AA0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 		3A19B39524D016A300CB7AA0 = {
 			isa = PBXGroup;
 			children = (
+				3A04FF2D24D4C46400F86955 /* README!!!.rtf */,
 				3A774BE724D0436700395523 /* R.generated.swift */,
 				3A19B3A024D016A300CB7AA0 /* VMediaTest */,
 				3A19B39F24D016A300CB7AA0 /* Products */,
@@ -408,6 +411,7 @@
 				3A8C634724D0233900DDE8CB /* LaunchScreen.storyboard in Resources */,
 				3AA0BEDA24D158C000AACC4C /* SMProgramCell.xib in Resources */,
 				3AA0BED624D1580700AACC4C /* SMTimeCell.xib in Resources */,
+				3A04FF2E24D4C46400F86955 /* README!!!.rtf in Resources */,
 				3A774BEE24D044EC00395523 /* SMChannelsViewController.xib in Resources */,
 				3AA0BED224D157EE00AACC4C /* SMChannelCell.xib in Resources */,
 				3A8C634624D0233900DDE8CB /* Assets.xcassets in Resources */,
@@ -663,6 +667,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = VMediaTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -681,6 +686,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = VMediaTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -131,8 +131,8 @@ final class SMChannelsPresenter: SMBasePresenter {
                     } else {
                         
                         cd.isTime = true
-                        time += SMTimeCellData.deltaTimeMinutes
                         cd.date = timeStartFirst.sm.dateByAddingMinutes(time)
+                        time += SMTimeCellData.deltaTimeMinutes
                     }
                     
                     i += 1
