@@ -66,14 +66,10 @@ class SMEmptyCell: SMBaseCollectionCell {
         
         super.setupCellData(aCellData)
     
+        /*For debug
         if let cd: SMEmptyCellData = aCellData as? SMEmptyCellData {
             
             lbTitle.text = "\(cd.breakMinutes)"
-        }
-    }
-    
-    override func setupWith(model aModel: AnyObject?) {
-        
-        super.setupWith(model: aModel)
+        }*/
     }
 }

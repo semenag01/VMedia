@@ -73,9 +73,9 @@ final class SMChannelsPresenter: SMBasePresenter {
                         channel.programItems = items
                     }
                     
-                    if let day: Date = self?.allAvailableDays()?.first {
+                    if self?.allAvailableDays()?.count ?? 0 > 0 {
                         
-                        self?.setupSections(day)
+                        self?.currentIndex = 0
                     }
                 }
             }
@@ -123,15 +123,16 @@ final class SMChannelsPresenter: SMBasePresenter {
                 while time < maxMinutes  {
                     
                     let cd: SMTimeCellData = SMTimeCellData()
-                    cd.date = timeStartFirst.sm.dateByAddingMinutes(time)
                     
                     if i == 0 {
                         
                         cd.isTime = false
+                        cd.date = day
                     } else {
                         
                         cd.isTime = true
                         time += SMTimeCellData.deltaTimeMinutes
+                        cd.date = timeStartFirst.sm.dateByAddingMinutes(time)
                     }
                     
                     i += 1

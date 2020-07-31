@@ -12,6 +12,10 @@ import VRGSoftSwiftIOSKit
 final class SMChannelsViewController: SMBaseCollectionViewController {
 
     @IBOutlet weak var parentScrollView: UIScrollView!
+    
+    @IBOutlet weak var btPrevious: UIButton!
+    @IBOutlet weak var btNext: UIButton!
+    
     static let minutesInPixel: Int = 7
     static let cellHeight: Int = 40
 
@@ -34,6 +38,7 @@ final class SMChannelsViewController: SMBaseCollectionViewController {
         
         super.viewDidLoad()
         
+        updatePageButtons()
         prepareLocalization()
     }
     
@@ -69,9 +74,27 @@ final class SMChannelsViewController: SMBaseCollectionViewController {
     
     // MARK: Logic
     
+    func updatePageButtons() {
+
+        let index: Int = custPresenter?.currentIndex ?? 0
+        let count: Int = custPresenter?.dateCount ?? 0
+
+        btPrevious.isEnabled = index > 0
+        btNext.isEnabled = index < count - 1
+    }
+    
     
     // MARK: Actions
     
+    @IBAction func btPreviousAction(_ sender: Any) {
+        
+        custPresenter?.currentIndex -= 1
+    }
+    
+    @IBAction func btNextActions(_ sender: Any) {
+        
+        custPresenter?.currentIndex += 1
+    }
 }
 
 
@@ -94,5 +117,7 @@ extension SMChannelsViewController: SMChannelsPresenterProtocol {
         listView?.sm.width = width
                 
         parentScrollView.contentSize = CGSize(width: width, height: self.listView?.sm.height ?? 0)
+        
+        updatePageButtons()
     }
 }

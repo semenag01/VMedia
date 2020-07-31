@@ -310,12 +310,19 @@ struct R: Rswift.Validatable {
 struct _R: Rswift.Validatable {
   static func validate() throws {
     #if os(iOS) || os(tvOS)
+    try nib.validate()
+    #endif
+    #if os(iOS) || os(tvOS)
     try storyboard.validate()
     #endif
   }
 
   #if os(iOS) || os(tvOS)
-  struct nib {
+  struct nib: Rswift.Validatable {
+    static func validate() throws {
+      try _SMChannelsViewController.validate()
+    }
+
     struct _SMChannelCell: Rswift.NibResourceType {
       let bundle = R.hostingBundle
       let name = "SMChannelCell"
@@ -327,12 +334,20 @@ struct _R: Rswift.Validatable {
       fileprivate init() {}
     }
 
-    struct _SMChannelsViewController: Rswift.NibResourceType {
+    struct _SMChannelsViewController: Rswift.NibResourceType, Rswift.Validatable {
       let bundle = R.hostingBundle
       let name = "SMChannelsViewController"
 
       func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
         return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
+      }
+
+      static func validate() throws {
+        if UIKit.UIImage(named: "icon_arrow_left", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'icon_arrow_left' is used in nib 'SMChannelsViewController', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "icon_arrow_right", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'icon_arrow_right' is used in nib 'SMChannelsViewController', but couldn't be loaded.") }
+        if #available(iOS 11.0, tvOS 11.0, *) {
+          if UIKit.UIColor(named: "separatorColor", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'separatorColor' is used in storyboard 'SMChannelsViewController', but couldn't be loaded.") }
+        }
       }
 
       fileprivate init() {}

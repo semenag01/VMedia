@@ -21,6 +21,7 @@ extension DateFormatter {
     static var uiTimeDF: DateFormatter = {
         
         let result: DateFormatter = DateFormatter()
+        result.timeZone = TimeZone(secondsFromGMT: 0)
         result.dateFormat = "HH:mm"
         return result
     }()
@@ -28,6 +29,7 @@ extension DateFormatter {
     static var uiOnlyDateDF: DateFormatter = {
         
         let result: DateFormatter = DateFormatter()
+        result.timeZone = TimeZone(secondsFromGMT: 0)
         result.dateFormat = "MMMM dd"
         return result
     }()
