@@ -95,24 +95,21 @@ final class SMChannelsPresenter: SMBasePresenter {
             sections.append(section)
             
             var i: Int = 0
-            var time: Int = minMinutes;
-            if var timeStartFirst: Date = cMin?.programItems?.first?.startTime,
-                let timeStartLast: Date = cMax?.programItems?.first?.startTime {
+            var time: Int = minMinutes
+            
+            if let timeStartFirst: Date = cMin?.programItems?.first?.startTime.sm.dateAtStartOfDay {
                 
                 while time < maxMinutes  {
                     
                     let cd: SMTimeCellData = SMTimeCellData()
+                    cd.date = timeStartFirst.sm.dateByAddingMinutes(time)
                     
                     if i == 0 {
-                        cd.cellSize = CGSize(width: 100, height: SMChannelsViewController.cellHeight)
-                        cd.text = DateFormatter.uiOnlyDateDF.string(from: timeStartFirst)
+                        cd.isTime = false
                     } else {
                         
-                        cd.cellSize = CGSize(width: 30 * SMChannelsViewController.minutesInPixel, height: SMChannelsViewController.cellHeight)
-                        cd.text = DateFormatter.uiTimeDF.string(from: timeStartFirst)
-                        
-                        time += 30
-                        timeStartFirst = timeStartFirst.sm.dateByAddingMinutes(30) ?? timeStartFirst
+                        cd.isTime = true
+                        time += SMTimeCellData.deltaTimeMinutes
                     }
                     
                     i += 1

@@ -10,7 +10,19 @@ import VRGSoftSwiftIOSKit
 
 class SMTimeCellData: SMCollectionCellData {
     
-    var text: String?
+    static let deltaTimeMinutes: Int = 30
+    
+    var isTime: Bool = true {
+        didSet {
+            if isTime {
+                self.cellSize = CGSize(width: SMTimeCellData.deltaTimeMinutes * SMChannelsViewController.minutesInPixel, height: SMChannelsViewController.cellHeight)
+            } else {
+                self.cellSize = CGSize(width: SMChannelCellData.cellWidth, height: SMChannelsViewController.cellHeight)
+            }
+        }
+    }
+    
+    var date: Date?
     
     override class var cellNibName_: String? {
         
@@ -52,9 +64,15 @@ class SMTimeCell: SMBaseCollectionCell {
         
         super.setupCellData(aCellData)
         
-        if let cd: SMTimeCellData = aCellData as? SMTimeCellData {
+        if let cd: SMTimeCellData = aCellData as? SMTimeCellData, let date: Date = cd.date {
             
-            lbTitle.text = cd.text
+            if cd.isTime {
+                
+                lbTitle.text = DateFormatter.uiTimeDF.string(from: date)
+            } else {
+                    
+                lbTitle.text = DateFormatter.uiOnlyDateDF.string(from: date)
+            }
         }
     }
     

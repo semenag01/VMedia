@@ -17,14 +17,36 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT" customClass="UIScrollView">
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oKv-UG-pwC">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="856"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tXk-pn-JVu">
+                    <rect key="frame" x="0.0" y="856" width="414" height="40"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="r8S-lk-VKv"/>
+                    </constraints>
+                </view>
+            </subviews>
             <color key="backgroundColor" name="separatorColor"/>
+            <constraints>
+                <constraint firstItem="oKv-UG-pwC" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="1Hp-TY-6Ni"/>
+                <constraint firstItem="oKv-UG-pwC" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="75X-cm-EA8"/>
+                <constraint firstAttribute="trailing" secondItem="oKv-UG-pwC" secondAttribute="trailing" id="7bQ-WZ-AaJ"/>
+                <constraint firstItem="tXk-pn-JVu" firstAttribute="top" secondItem="oKv-UG-pwC" secondAttribute="bottom" id="8NB-Sn-tex"/>
+                <constraint firstAttribute="trailing" secondItem="tXk-pn-JVu" secondAttribute="trailing" id="cu5-45-WFD"/>
+                <constraint firstAttribute="bottom" secondItem="tXk-pn-JVu" secondAttribute="bottom" id="i66-nj-4NW"/>
+                <constraint firstItem="tXk-pn-JVu" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="jxa-6S-niT"/>
+            </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <point key="canvasLocation" x="139" y="81"/>
+            <point key="canvasLocation" x="137.68115942028987" y="80.357142857142847"/>
         </view>
     </objects>
     <resources>
         <namedColor name="separatorColor">
-            <color red="0.088891588150000006" green="0.1483545899" blue="0.2541776597" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.089000001549720764" green="0.14800000190734863" blue="0.25400000810623169" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

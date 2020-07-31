@@ -18,7 +18,7 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qh7-Wl-WWn">
-                        <rect key="frame" x="0.0" y="0.0" width="217" height="66"/>
+                        <rect key="frame" x="3" y="0.0" width="211" height="66"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
@@ -42,11 +42,11 @@
             </view>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="VXa-kn-r6r" secondAttribute="trailing" id="1mf-i5-aKu"/>
-                <constraint firstAttribute="trailing" secondItem="Qh7-Wl-WWn" secondAttribute="trailing" id="Fsq-xd-7BN"/>
+                <constraint firstAttribute="trailing" secondItem="Qh7-Wl-WWn" secondAttribute="trailing" constant="3" id="Fsq-xd-7BN"/>
                 <constraint firstItem="Qh7-Wl-WWn" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="GA2-qG-haI"/>
                 <constraint firstItem="VXa-kn-r6r" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Gmq-BP-uJM"/>
                 <constraint firstItem="RFU-iW-k9a" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="PuC-nA-VaW"/>
-                <constraint firstItem="Qh7-Wl-WWn" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="X19-Qr-lUN"/>
+                <constraint firstItem="Qh7-Wl-WWn" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="3" id="X19-Qr-lUN"/>
                 <constraint firstAttribute="bottom" secondItem="Qh7-Wl-WWn" secondAttribute="bottom" id="omT-aK-Ecp"/>
                 <constraint firstAttribute="bottom" secondItem="RFU-iW-k9a" secondAttribute="bottom" id="v41-uy-uS2"/>
                 <constraint firstAttribute="bottom" secondItem="VXa-kn-r6r" secondAttribute="bottom" id="vhj-zC-AKK"/>
@@ -61,7 +61,7 @@
     </objects>
     <resources>
         <namedColor name="blueColor">
-            <color red="0.612765491" green="0.67824852469999997" blue="0.78435254099999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.61299997568130493" green="0.67799997329711914" blue="0.7839999794960022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>
