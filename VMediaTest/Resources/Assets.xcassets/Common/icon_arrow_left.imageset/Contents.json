@@ -1,15 +1,12 @@
 {
   "images" : [
     {
-      "filename" : "logo_apple.pdf",
+      "filename" : "icon_arrow_left.pdf",
       "idiom" : "universal"
     }
   ],
   "info" : {
     "author" : "xcode",
     "version" : 1
-  },
-  "properties" : {
-    "preserves-vector-representation" : true
   }
 }

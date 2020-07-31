@@ -258,6 +258,17 @@ class SMBaseViewController: SMViewController {
         return .lightContent
     }
 
+    override var shouldAutorotate: Bool { return true }
+    
+    override var preferredInterfaceOrientationForPresentation: UIInterfaceOrientation {
+        
+        if SMHelper.isIPad {
+            return UIInterfaceOrientation.landscapeLeft
+        } else {
+            return UIInterfaceOrientation.portrait
+        }
+    }
+    
     
     // MARK: Localiztion
     

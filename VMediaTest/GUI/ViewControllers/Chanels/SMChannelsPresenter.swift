@@ -11,13 +11,16 @@ import VRGSoftSwiftIOSKit
 protocol SMChannelsPresenterProtocol {
     
     func willReloadWithInterval(_ interval: Int)
+    
+    func open(_ chanel: SMChannel)
+    func open(_ program: SMProgramItem)
 }
 
 final class SMChannelsPresenter: SMBasePresenter {
     
     private var channels: [SMChannel]?
     
-    func allAvailableDays() -> [Date]? {
+    private func allAvailableDays() -> [Date]? {
         
         var result: Set<Date> = .init()
         
@@ -34,11 +37,19 @@ final class SMChannelsPresenter: SMBasePresenter {
         }
     }
     
-    var custViewController: SMChannelsPresenterProtocol? {
+    var currentIndex: Int = 0 {
         
-        return vc as? SMChannelsPresenterProtocol
+        didSet {
+            
+            if let date: Date = allAvailableDays()?[currentIndex] {
+                setupSections(date)
+            }
+        }
     }
     
+    
+    // MARK: Base Overrides
+
     override func reloadData() {
         
         super.reloadData()
@@ -70,8 +81,18 @@ final class SMChannelsPresenter: SMBasePresenter {
             }
         }
     }
-    
-    func setupSections(_ day: Date) {
+
+
+    // MARK: Logic
+
+    var dateCount: Int { return allAvailableDays()?.count ?? 0 }
+        
+    var custViewController: SMChannelsPresenterProtocol? {
+        
+        return vc as? SMChannelsPresenterProtocol
+    }
+        
+    private func setupSections(_ day: Date) {
         
         guard let channels: [SMChannel] = self.channels?.filter({ (channel) -> Bool in
             return channel.avalibleDays?.contains(day) ?? false
@@ -105,6 +126,7 @@ final class SMChannelsPresenter: SMBasePresenter {
                     cd.date = timeStartFirst.sm.dateByAddingMinutes(time)
                     
                     if i == 0 {
+                        
                         cd.isTime = false
                     } else {
                         
@@ -126,6 +148,9 @@ final class SMChannelsPresenter: SMBasePresenter {
                 sections.append(section)
                 
                 let cd: SMChannelCellData = SMChannelCellData(model: channel)
+                cd.baSelect = SMBlockAction(block: { [weak self] (sender) in
+                    self?.custViewController?.open(channel)
+                })
                 section.addCellData(cd)
                 
                 for (index, programItem) in programItems.enumerated() {
@@ -150,7 +175,9 @@ final class SMChannelsPresenter: SMBasePresenter {
                     }
 
                     let cd: SMProgramCellData = SMProgramCellData(model: programItem)
-                                        
+                    cd.baSelect = SMBlockAction(block: { [weak self] (sender) in
+                        self?.custViewController?.open(programItem)
+                    })
                     section.addCellData(cd)
                 }
             }

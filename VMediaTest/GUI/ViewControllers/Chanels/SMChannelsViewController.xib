@@ -10,21 +10,37 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SMChannelsViewController" customModule="VMediaTest" customModuleProvider="target">
             <connections>
+                <outlet property="parentScrollView" destination="e9O-Jy-aHG" id="8Xw-Pc-thY"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT" customClass="UIScrollView">
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oKv-UG-pwC">
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e9O-Jy-aHG">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="856"/>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                </view>
+                    <subviews>
+                        <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lGE-8n-Ihw">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="856"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </view>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="lGE-8n-Ihw" firstAttribute="width" secondItem="e9O-Jy-aHG" secondAttribute="width" id="HJN-oj-sYC"/>
+                        <constraint firstAttribute="bottom" secondItem="lGE-8n-Ihw" secondAttribute="bottom" constant="8" id="Sok-rw-b9k"/>
+                        <constraint firstItem="lGE-8n-Ihw" firstAttribute="leading" secondItem="e9O-Jy-aHG" secondAttribute="leading" id="a5M-VG-Mjj"/>
+                        <constraint firstItem="lGE-8n-Ihw" firstAttribute="height" secondItem="e9O-Jy-aHG" secondAttribute="height" id="gGH-Fr-fkk"/>
+                        <constraint firstAttribute="trailing" secondItem="lGE-8n-Ihw" secondAttribute="trailing" id="ue7-hX-PAB"/>
+                        <constraint firstItem="lGE-8n-Ihw" firstAttribute="top" secondItem="e9O-Jy-aHG" secondAttribute="top" id="znw-bJ-iqR"/>
+                    </constraints>
+                    <viewLayoutGuide key="contentLayoutGuide" id="IOl-Ra-iVo"/>
+                    <viewLayoutGuide key="frameLayoutGuide" id="gaN-tG-Pmy"/>
+                </scrollView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tXk-pn-JVu">
                     <rect key="frame" x="0.0" y="856" width="414" height="40"/>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="r8S-lk-VKv"/>
                     </constraints>
@@ -32,13 +48,13 @@
             </subviews>
             <color key="backgroundColor" name="separatorColor"/>
             <constraints>
-                <constraint firstItem="oKv-UG-pwC" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="1Hp-TY-6Ni"/>
-                <constraint firstItem="oKv-UG-pwC" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="75X-cm-EA8"/>
-                <constraint firstAttribute="trailing" secondItem="oKv-UG-pwC" secondAttribute="trailing" id="7bQ-WZ-AaJ"/>
-                <constraint firstItem="tXk-pn-JVu" firstAttribute="top" secondItem="oKv-UG-pwC" secondAttribute="bottom" id="8NB-Sn-tex"/>
+                <constraint firstItem="e9O-Jy-aHG" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="4V7-dF-Nsf"/>
+                <constraint firstItem="e9O-Jy-aHG" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Cm0-yb-dzZ"/>
                 <constraint firstAttribute="trailing" secondItem="tXk-pn-JVu" secondAttribute="trailing" id="cu5-45-WFD"/>
+                <constraint firstAttribute="trailing" secondItem="e9O-Jy-aHG" secondAttribute="trailing" id="eNe-zt-saf"/>
                 <constraint firstAttribute="bottom" secondItem="tXk-pn-JVu" secondAttribute="bottom" id="i66-nj-4NW"/>
                 <constraint firstItem="tXk-pn-JVu" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="jxa-6S-niT"/>
+                <constraint firstItem="tXk-pn-JVu" firstAttribute="top" secondItem="e9O-Jy-aHG" secondAttribute="bottom" id="u3i-LV-a9K"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="137.68115942028987" y="80.357142857142847"/>

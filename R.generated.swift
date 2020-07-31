@@ -155,55 +155,26 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.image` struct is generated, and contains static references to 7 images.
+  /// This `R.image` struct is generated, and contains static references to 3 images.
   struct image {
-    /// Image `logo_app`.
-    static let logo_app = Rswift.ImageResource(bundle: R.hostingBundle, name: "logo_app")
-    /// Image `logo_apple`.
-    static let logo_apple = Rswift.ImageResource(bundle: R.hostingBundle, name: "logo_apple")
-    /// Image `logo_facebook`.
-    static let logo_facebook = Rswift.ImageResource(bundle: R.hostingBundle, name: "logo_facebook")
-    /// Image `logo_google`.
-    static let logo_google = Rswift.ImageResource(bundle: R.hostingBundle, name: "logo_google")
-    /// Image `more_cell_arrow`.
-    static let more_cell_arrow = Rswift.ImageResource(bundle: R.hostingBundle, name: "more_cell_arrow")
+    /// Image `icon_arrow_left`.
+    static let icon_arrow_left = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon_arrow_left")
+    /// Image `icon_arrow_right`.
+    static let icon_arrow_right = Rswift.ImageResource(bundle: R.hostingBundle, name: "icon_arrow_right")
     /// Image `navBar_back`.
     static let navBar_back = Rswift.ImageResource(bundle: R.hostingBundle, name: "navBar_back")
-    /// Image `profile_favourites`.
-    static let profile_favourites = Rswift.ImageResource(bundle: R.hostingBundle, name: "profile_favourites")
 
     #if os(iOS) || os(tvOS)
-    /// `UIImage(named: "logo_app", bundle: ..., traitCollection: ...)`
-    static func logo_app(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.logo_app, compatibleWith: traitCollection)
+    /// `UIImage(named: "icon_arrow_left", bundle: ..., traitCollection: ...)`
+    static func icon_arrow_left(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.icon_arrow_left, compatibleWith: traitCollection)
     }
     #endif
 
     #if os(iOS) || os(tvOS)
-    /// `UIImage(named: "logo_apple", bundle: ..., traitCollection: ...)`
-    static func logo_apple(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.logo_apple, compatibleWith: traitCollection)
-    }
-    #endif
-
-    #if os(iOS) || os(tvOS)
-    /// `UIImage(named: "logo_facebook", bundle: ..., traitCollection: ...)`
-    static func logo_facebook(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.logo_facebook, compatibleWith: traitCollection)
-    }
-    #endif
-
-    #if os(iOS) || os(tvOS)
-    /// `UIImage(named: "logo_google", bundle: ..., traitCollection: ...)`
-    static func logo_google(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.logo_google, compatibleWith: traitCollection)
-    }
-    #endif
-
-    #if os(iOS) || os(tvOS)
-    /// `UIImage(named: "more_cell_arrow", bundle: ..., traitCollection: ...)`
-    static func more_cell_arrow(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.more_cell_arrow, compatibleWith: traitCollection)
+    /// `UIImage(named: "icon_arrow_right", bundle: ..., traitCollection: ...)`
+    static func icon_arrow_right(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.icon_arrow_right, compatibleWith: traitCollection)
     }
     #endif
 
@@ -211,13 +182,6 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "navBar_back", bundle: ..., traitCollection: ...)`
     static func navBar_back(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.navBar_back, compatibleWith: traitCollection)
-    }
-    #endif
-
-    #if os(iOS) || os(tvOS)
-    /// `UIImage(named: "profile_favourites", bundle: ..., traitCollection: ...)`
-    static func profile_favourites(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
-      return UIKit.UIImage(resource: R.image.profile_favourites, compatibleWith: traitCollection)
     }
     #endif
 
@@ -281,8 +245,8 @@ struct R: Rswift.Validatable {
       return R.nib.smChannelCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? SMChannelCell
     }
 
-    static func smChannelsViewController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIScrollView? {
-      return R.nib.smChannelsViewController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIScrollView
+    static func smChannelsViewController(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+      return R.nib.smChannelsViewController.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
     }
 
     static func smEmptyCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> SMEmptyCell? {
@@ -367,8 +331,8 @@ struct _R: Rswift.Validatable {
       let bundle = R.hostingBundle
       let name = "SMChannelsViewController"
 
-      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIScrollView? {
-        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIScrollView
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> UIKit.UIView? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
       }
 
       fileprivate init() {}

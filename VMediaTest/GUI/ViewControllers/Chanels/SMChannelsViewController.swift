@@ -11,6 +11,7 @@ import VRGSoftSwiftIOSKit
 
 final class SMChannelsViewController: SMBaseCollectionViewController {
 
+    @IBOutlet weak var parentScrollView: UIScrollView!
     static let minutesInPixel: Int = 7
     static let cellHeight: Int = 40
 
@@ -39,6 +40,11 @@ final class SMChannelsViewController: SMBaseCollectionViewController {
     
     // MARK: Base Overrides
     
+    override func parentListView() -> UIView {
+        
+        return parentScrollView
+    }
+    
     override func configureListView() {
         
         super.configureListView()
@@ -66,25 +72,27 @@ final class SMChannelsViewController: SMBaseCollectionViewController {
     
     // MARK: Actions
     
-    
-    // MARK: Localization
-    
-    override func prepareLocalization() {
-        
-    }
 }
-
 
 
 // MARK: SMChannelsPresenterProtocol
 
 extension SMChannelsViewController: SMChannelsPresenterProtocol {
     
+    func open(_ chanel: SMChannel) {
+        
+        print("open chanel ", chanel)
+    }
+    
+    func open(_ program: SMProgramItem) {
+        print("open program ", program)
+    }
+    
     func willReloadWithInterval(_ interval: Int) {
         
         let width: CGFloat = CGFloat(interval * SMChannelsViewController.minutesInPixel + SMChannelCellData.cellWidth)
         listView?.sm.width = width
                 
-        (self.view as? UIScrollView)?.contentSize = CGSize(width: width, height: self.listView?.sm.height ?? 0)
+        parentScrollView.contentSize = CGSize(width: width, height: self.listView?.sm.height ?? 0)
     }
 }
